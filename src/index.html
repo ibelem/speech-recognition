@@ -23,22 +23,6 @@
 
 <body>
   <div id="app">
-    <!-- Responsive navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container px-5">
-        <a class="navbar-brand" href="#">Transformers.js</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-            class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="#demo">Demo</a></li>
-            <li class="nav-item"><a class="nav-link" href="#quick-tour">Quick tour</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
     <!-- Modal -->
     <div class="modal fade" id="content-modal" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
@@ -52,35 +36,11 @@
       </div>
     </div>
 
-    <!-- Header-->
-    <header class="bg-dark pt-3 pb-5">
-      <div class="container px-5">
-        <div class="row gx-5 justify-content-center">
-          <div class="col-lg-6">
-            <div class="text-center">
-              <h1 class="display-5 fw-bolder text-white mb-2">Transformers.js</h1>
-              <p class="lead text-white-50 mb-4">
-                Run <span class="text-white">🤗</span> Transformers in your browser!
-              </p>
-              <!-- <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                <a class="btn btn-primary btn-lg px-4 me-sm-3"
-                  href="https://huggingface.co/docs/transformers.js">Documentation</a>
-                <a class="btn btn-outline-light btn-lg px-4" href="https://github.com/xenova/transformers.js">
-                  <i class="bi bi-github"></i> View Source
-                </a>
-              </div> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
     <!-- Demo section-->
     <section class="py-4 border-bottom" id="demo">
       <div class="container px-5 my-4">
         <div class="mb-2">
-          <h2 class="fw-bolder">Demo</h2>
-          <p class="lead mb-0">Play around with some of these models:</p>
+          <h2 class="fw-bolder">Speech Recognition Demo</h2>
         </div>
         <div class="row justify-content-center">
           <label>Task: </label>
@@ -337,6 +297,7 @@
 
               <div class="col-lg-6">
                 <select id="audio-select" class="form-select">
+                  <option value="./audio/cp_webnn_last.mp3">Compute Pressure & WebNN Summary</option>
                   <option value="./audio/jfk.wav">Example 1</option>
                   <option value="./audio/ted.wav">Example 2</option>
                   <option value="./audio/ted_60.wav">Example 3</option>
@@ -347,7 +308,7 @@
                   accept="audio/*">
 
                 <audio id="audio-player" controls class="mt-2 w-100">
-                  <source src="./audio/jfk.wav">
+                  <source src="./audio/cp_webnn_last.mp3">
                   Your browser does not support the audio element.
                 </audio>
               </div>
@@ -497,15 +458,15 @@
             Notes:
             <ul>
               <li>Clicking <em>Generate</em> for the first time will download the corresponding model from
-                the
-                <a href="https://huggingface.co/models">HuggingFace Hub</a>.
-                All subsequent requests will use the cached model.
+                local. All subsequent requests will use the cached model.
               </li>
-              <li>For more information about the different parameters, check out HuggingFace's
-                <a href="https://huggingface.co/blog/how-to-generate">guide to text generation</a>.
+              <li><a href="https://github.com/xenova/transformers.js">Transformers.js</a> uses ONNX Runtime to run
+                models in the browser, based on Web Assembly (Wasm)
+                currently.
               </li>
             </ul>
           </div>
+
           <div class="col-12 mt-2 d-flex justify-content-center">
             <button id="generate" type="button" class="btn btn-primary">Generate</button>
 
@@ -529,9 +490,9 @@
     </section>
 
     <!-- Footer-->
-    <footer class="py-3 bg-dark">
+    <footer class="py-3">
       <div class="container px-5">
-        <p class="m-0 text-center text-white">Copyright &copy; Xenova 2023</p>
+        <p class="m-0 text-center">Copyright &copy; Xenova 2023</p>
       </div>
     </footer>
 
