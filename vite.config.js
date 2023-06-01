@@ -11,4 +11,7 @@ export default {
         outDir: path.join(__dirname, 'dist')
     },
     publicDir: path.join(__dirname, 'public'),
+    preview: {
+        port: 4174
+    },
 }
